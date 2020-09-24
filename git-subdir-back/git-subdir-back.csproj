@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <RootNamespace>GitSubdirTools.Back</RootNamespace>
+        <StartupObject>GitSubdirTools.Back.Program</StartupObject>
+        <PackAsTool>true</PackAsTool>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\git-subdir-cmd\git-subdir-cmd.csproj"/>
+        <ProjectReference Include="..\git-subdir-lib\git-subdir-lib.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.8.0"/>
+        <PackageReference Include="ShellProgressBar" Version="5.0.0"/>
+    </ItemGroup>
+
+</Project>
