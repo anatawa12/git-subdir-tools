@@ -7,6 +7,17 @@
         <PackAsTool>true</PackAsTool>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Title>git-subdir-back</Title>
+        <Summary>A tool to merge extracted repository by git-subdir-copy to huge git repository.</Summary>
+        <Description>
+            A tool to merge extracted repository by git-subdir-copy to huge git repository.
+            This tool is a part of git-subdir-tools.
+            If you want to extract repository from hige repository,
+            use git-subdir-copy.
+        </Description>
+    </PropertyGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\git-subdir-cmd\git-subdir-cmd.csproj"/>
         <ProjectReference Include="..\git-subdir-lib\git-subdir-lib.csproj"/>

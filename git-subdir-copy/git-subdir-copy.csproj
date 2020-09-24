@@ -7,6 +7,17 @@
         <PackAsTool>true</PackAsTool>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Title>git-subdir-copy</Title>
+        <Summary>A tool to extract some directory from huge git repository.</Summary>
+        <Description>
+            A tool to extract some directory from huge git repository. 
+            This tool is a part of git-subdir-tools.
+            If you want to merge extracted repository to hige repository, 
+            use git-subdir-back.
+        </Description>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="CommandLineParser" Version="2.8.0"/>
         <PackageReference Include="LibGit2Sharp" Version="0.26.2"/>

@@ -10,5 +10,13 @@
 
     <PropertyGroup>
         <Version>1.0.0.0-preview-0</Version>
+        <license type="expression">MIT</license>
+        <PackageLicenseUrl>https://github.com/anatawa12/git-subdir-tools/blob/master/LICENSE.txt</PackageLicenseUrl>
+        <PackageProjectUrl>https://github.com/anatawa12/git-subdir-tools</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/anatawa12/git-subdir-tools.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <Copyright>anatawa12</Copyright>
+        <PackageTags>git</PackageTags>
+        <Authors>anatawa12</Authors>
     </PropertyGroup>
 </Project>
