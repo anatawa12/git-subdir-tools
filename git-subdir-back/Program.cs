@@ -78,10 +78,12 @@ namespace GitSubdirTools.Back
                 Logger = logger,
             };
 
-            var main = new BackCopyCommitMain(backCopyOptions);
-            main.DoMain(rootdirRepo, subdirRepo, options.TraceLog
+            using ICopyCommitProgressHandler progressHandler = options.TraceLog
                 ? new NopProgressBarCopyCommitProgressHandler()
-                : new ConsoleProgressBarCopyCommitProgressHandler());
+                : new ConsoleProgressBarCopyCommitProgressHandler();
+
+            var main = new BackCopyCommitMain(backCopyOptions);
+            main.DoMain(rootdirRepo, subdirRepo, progressHandler);
 
 #if SUPPORT_REMOTE_REPOSITORY
             if (options.PushAfterCommit)

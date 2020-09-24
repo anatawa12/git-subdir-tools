@@ -87,10 +87,12 @@ namespace GitSubdirTools.Init
                 Logger = logger,
             };
 
-            var main = new CopyCommitMain(copyOptions);
-            main.DoMain(rootdirRepo, subdirRepo, options.TraceLog
+            using ICopyCommitProgressHandler progressHandler = options.TraceLog
                 ? new NopProgressBarCopyCommitProgressHandler()
-                : new ConsoleProgressBarCopyCommitProgressHandler());
+                : new ConsoleProgressBarCopyCommitProgressHandler();
+
+            var main = new CopyCommitMain(copyOptions);
+            main.DoMain(rootdirRepo, subdirRepo, progressHandler);
 
 #if SUPPORT_REMOTE_REPOSITORY
             if (options.PushAfterCommit)
