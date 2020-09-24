@@ -119,31 +119,19 @@ brew cask install dotnet-sdk-preview
 ```
 for other platforms, please install from https://dotnet.microsoft.com/download/dotnet/5.0.
 
-* (for execute) dotnet core 3.1 or later
+* (for install) dotnet core sdk 3.1 or later
 ```sh
-brew cask install dotnet
+brew cask install dotnet-sdk
 ```
 for other platforms, please install from https://dotnet.microsoft.com/download/dotnet-core/3.1.
 
 ### Installation
 
-Currently this project is not published to nuget.org.
-
-1. Clone the repo
-```sh
-git clone https://github.com/anatawa12/git-subdir-tools.git
+You can install both two tool with dotnet tool command.
 ```
-2. build and install!
-for linux or macos:
-```sh
-./for-local-install.sh
+dotnet tool install -g git-subdir-copy --version 1.0.0-preview-1
+dotnet tool install -g git-subdir-back --version 1.0.0-preview-1
 ```
-for windows:
-```sh
-for-local-install
-```
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
