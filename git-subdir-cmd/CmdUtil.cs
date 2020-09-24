@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using GitSubdirTools.Libs;
 using LibGit2Sharp;
 
@@ -164,6 +165,15 @@ namespace GitSubdirTools.Cmd
             {HostingService.GitlabCom, "gitlab.com"},
             {HostingService.BitbucketOrg, "bitbucket.org"},
         };
+
+        public static void NoCacheWarn(string? optionsCacheFilePath)
+        {
+            if (optionsCacheFilePath == null)
+            {
+                Console.WriteLine("WARN: no --cache or -c is not specified. " +
+                                  "you should use cache file to get fast when update extracting or merging");
+            }
+        }
     }
 
     internal enum HostingService

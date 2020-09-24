@@ -61,6 +61,8 @@ namespace GitSubdirTools.Back
                 TraceEnabled = options.TraceLog
             };
 
+            CmdUtil.NoCacheWarn(options.CacheFilePath);
+
             await using var mapping = new ObjectIdCache(options.CacheFilePath);
 
             using var rootdirRepo = CmdUtil.PrepareRepository(options.RootdirPath, "rootdir repository",
