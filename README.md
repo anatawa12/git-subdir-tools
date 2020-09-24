@@ -95,7 +95,19 @@ cd -
 git-subdir-copy \
     -r <path to rootdir repository> \
     -s <path to subdir repository> \
-    -d <path to some directory> 
+    -d <path to some directory> \
+    -c <path to cache directory> \
+    --rootdir-repo-desc jetbrains/intellij-community
+```
+
+#### merge to big repository
+```sh
+# git-subdir-back will merge new commits and branches to big repository
+git-subdir-back \
+    -r <path to rootdir repository> \
+    -s <path to subdir repository> \
+    -d <path to some directory> \
+    -c <path to cache directory> \
     --rootdir-repo-desc jetbrains/intellij-community
 ```
 
