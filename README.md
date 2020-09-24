@@ -129,8 +129,8 @@ for other platforms, please install from https://dotnet.microsoft.com/download/d
 
 You can install both two tool with dotnet tool command.
 ```
-dotnet tool install -g git-subdir-copy --version 1.0.0-preview-1
-dotnet tool install -g git-subdir-back --version 1.0.0-preview-1
+dotnet tool install -g git-subdir-copy --version 1.0.0-preview-2
+dotnet tool install -g git-subdir-back --version 1.0.0-preview-2
 ```
 
 <!-- USAGE EXAMPLES -->
