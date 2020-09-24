@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using LibGit2Sharp;
 
@@ -20,17 +21,20 @@ namespace GitSubdirTools.Libs
             return ParseCommitRefToCommitHash(lastTwoLines[0].AsSpan(BasedirPrefix.Length));
         }
 
-        public static ObjectId? ReadSubdirCommitNameFromMessage(string message, string subdirPath)
+        public static ObjectId? ReadSubdirCommitNameFromMessage(string message, IEnumerable<string> subdirPaths)
         {
-            var prefix = $"{SubdirPrefix}{subdirPath}:";
+            var prefixes = subdirPaths.Select(subdirPath => $"{SubdirPrefix}{subdirPath}:").ToList();
             foreach (var lineStr in message.Split('\n'))
             {
                 var line = lineStr.AsSpan();
-                if (!line.StartsWith(prefix)) continue;
-                var commitRef = line[prefix.Length..].RemovePrefix(" ");
-                var hash      = ParseCommitRefToCommitHash(commitRef);
-                if (hash == null) continue;
-                return hash;
+                foreach (var prefix in prefixes)
+                {
+                    if (!line.StartsWith(prefix)) continue;
+                    var commitRef = line[prefix.Length..].RemovePrefix(" ");
+                    var hash      = ParseCommitRefToCommitHash(commitRef);
+                    if (hash == null) continue;
+                    return hash;
+                }
             }
 
             return null;

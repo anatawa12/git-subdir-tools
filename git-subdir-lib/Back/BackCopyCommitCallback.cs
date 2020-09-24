@@ -20,13 +20,13 @@ namespace GitSubdirTools.Libs.Back
         public Tree CreateCommitTree(Commit commit, Commit[] parentsInTargetRepo, Repository targetRepo)
         {
             var modify = new TreeModify();
-            modify.AddOrSet(_copyOptions.DirInSrc, commit.Tree);
+            modify.AddOrSet(_copyOptions.DirInSrcs[0], commit.Tree);
             return TreeUtil.CopyTreeToAnotherRepositoryWithModifying(parentsInTargetRepo[0].Tree, targetRepo, modify);
         }
 
         public string GenerateCommitMessage(Commit commit)
         {
-            return commit.Message + "\n" + CommitMessageUtil.SubdirPrefix + _copyOptions.DirInSrc
+            return commit.Message + "\n" + CommitMessageUtil.SubdirPrefix + _copyOptions.DirInSrcs[0]
                    + ": " + _copyOptions.SubdirDesc + "@" + commit.Sha + "\n";
         }
 
@@ -47,7 +47,7 @@ namespace GitSubdirTools.Libs.Back
             {
                 commit = RepositoryUtil.GetAllCommits(targetRepo)
                     .FirstOrDefault(copied =>
-                        CommitMessageUtil.ReadSubdirCommitNameFromMessage(copied.Message, _copyOptions.DirInSrc) ==
+                        CommitMessageUtil.ReadSubdirCommitNameFromMessage(copied.Message, _copyOptions.DirInSrcs) ==
                         copiedFrom.Id);
                 if (commit != null) return true;
 

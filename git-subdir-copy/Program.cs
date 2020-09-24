@@ -11,17 +11,6 @@ namespace GitSubdirTools.Init
 {
     internal class CommandLineOptions : CommandLineOptionsBase
     {
-        [Option("rootdir-repo-desc",
-            HelpText = "url or identifier of rootdir repository.",
-            MetaValue = "ROOTDIR_REPO_DESC")]
-        public string? RootdirDesc { get; set; } = null;
-
-        [Option('d', "dir-in-src", HelpText = "the directory which should be copied. " +
-                                              "you can choose two or more directories " +
-                                              "but only first directory which is found will only be used",
-            MetaValue = "DIR_IN_SRC", Required = true)]
-        public IList<string> DirInSrcs { get; set; } = null!;
-
         [Option("commit-even-if-empty", HelpText = "Creates commit even if empty commit. In default, " +
                                                    "if there is no change, the commit will never be copied.")]
         public bool CommitEvenIfEmpty { get; set; } = false;

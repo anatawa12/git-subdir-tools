@@ -29,6 +29,22 @@ namespace GitSubdirTools.Cmd
             MetaValue = "BRANCH")]
         public IList<string> BranchNames { get; set; } = Array.Empty<string>();
 
+        [Option("subdir-repo-desc",
+            HelpText = "url or identifier of subdir repository.",
+            MetaValue = "SUBDIR_REPO_DESC")]
+        public string? SubdirRepoDesc { get; set; } = null;
+
+        [Option("rootdir-repo-desc",
+            HelpText = "url or identifier of rootdir repository.",
+            MetaValue = "ROOTDIR_REPO_DESC")]
+        public string? RootdirDesc { get; set; } = null;
+
+        [Option('d', "dir-in-src", HelpText = "the directory which should be copied. " +
+                                              "you can choose two or more directories " +
+                                              "but only first directory which is found will only be used",
+            MetaValue = "DIR_IN_SRC", Required = true)]
+        public IList<string> DirInSrcs { get; set; } = null!;
+
 #if SUPPORT_REMOTE_REPOSITORY
         [Option("push", HelpText = "pushes repository to origin")]
         public bool PushAfterCommit { get; set; } = false;

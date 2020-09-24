@@ -11,16 +11,6 @@ namespace GitSubdirTools.Back
 {
     internal class CommandLineOptions : CommandLineOptionsBase
     {
-        [Option("subdir-repo-desc",
-            HelpText = "url or identifier of subdir repository.",
-            MetaValue = "SUBDIR_REPO_DESC")]
-        public string? SubdirRepoDesc { get; set; } = null;
-
-        [Option('d', "dir-in-src", HelpText = "the directory which should be copied. " +
-                                              "you can choose two or more directories " +
-                                              "but only first directory which is found will only be used",
-            MetaValue = "DIR_IN_SRC", Required = true)]
-        public string DirInSrc { get; set; } = null!;
     }
 
     internal class Program
@@ -79,11 +69,10 @@ namespace GitSubdirTools.Back
                 otherRepository: rootdirRepo,
                 repositoryType: "subdir");
 
-            var backCopyOptions = new BackCopyOptions(
-                dirInSrc: options.DirInSrc,
-                subdirDesc: subdirDesc)
+            var backCopyOptions = new BackCopyOptions(subdirDesc: subdirDesc)
             {
                 ObjectMapping = mapping,
+                DirInSrcs = options.DirInSrcs,
                 Branches = CmdUtil.Branches(options.BranchNames, subdirRepo),
                 MaxDepth = options.MaxDepth,
                 Logger = logger,
