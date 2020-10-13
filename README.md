@@ -142,7 +142,7 @@ intellij-community repository is 3.6GB and extracted FernFlower decompiler repos
 
 ![Product Name Screen Shot][product-screenshot]
 
-here is a repository extracted FernFlower repository from this tool: [anatawa12/intellij-decompiler-engine](https://github.com/anatawa12/intellij-decompiler-engine)
+<!--here is a repository extracted FernFlower repository from this tool: [anatawa12/intellij-decompiler-engine](https://github.com/anatawa12/intellij-decompiler-engine)-->
 
 <!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
